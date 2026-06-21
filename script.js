@@ -2,7 +2,6 @@
 const DISCORD_WEBHOOK_URL = 'https://discordapp.com/api/webhooks/1516266080891441314/Qym9McRE4-k6OZc7g8Cq7VQiP4FjHYc22fvosM2J73RXHmj9o20J3uMDLwVnFTVcZCtT';
 
 const pageFlow = [
-  'index.html',
   'index2.html',
   'index4.html',
   'index5.html',
