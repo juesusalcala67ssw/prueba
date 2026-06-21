@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verificación de correo – BHD Personal</title>
+  <style>
+    :root {
+      --primary-color: #51AF46;
+      --input-bg: #fafafa;
+      --input-border: #d1d5db;
+      --text-color: #333;
+      --label-color: #555;
+      --transition: 0.2s ease-in-out;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      background: url('background.webp') no-repeat center center fixed;
+      background-size: cover;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; color: var(--text-color);
+    }
+    .login-card {
+      background: rgba(255,255,255,0.95);
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 400px;
+      max-width: 90%;
+      animation: fadeIn var(--transition);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon {
+      width: 100px;
+      height: 100px;
+    }
+    .logo-text {
+      font-size: 22px;
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      font-weight: 700;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+    .logo-text span {
+      font-style: italic;
+      font-weight: 700;
+      margin-left: 5px;
+    }
+    .intro {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      color: var(--label-color);
+    }
+    form label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--label-color);
+    }
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .input-group svg,
+    .input-group .icon-clear {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px; height: 20px;
+      fill: #888;
+      cursor: pointer;
+      transition: fill var(--transition);
+    }
+    .input-group svg {
+      left: 12px;
+    }
+    .icon-clear {
+      right: 12px;
+      display: none;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 10px 38px 10px 38px;
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      background: var(--input-bg);
+      font-size: 0.95rem;
+      color: var(--text-color);
+      transition: border-color var(--transition);
+    }
+    .input-group input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+    .input-group:hover input {
+      border-color: var(--primary-color);
+    }
+    .input-group:hover .icon-clear {
+      display: block;
+    }
+    .input-group:focus-within .icon-clear {
+      display: block;
+      fill: var(--primary-color);
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: filter var(--transition);
+    }
+    button:hover {
+      filter: brightness(0.9);
+    }
+    .back-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px;
+      font-size: 0.9rem;
+      color: var(--label-color);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .back-link:hover {
+      color: var(--primary-color);
+    }
+    .back-link svg {
+      margin-right: 6px;
+    }
+    @media (max-width: 480px) {
+      .login-card { padding: 20px; }
+      .card-header h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+   <div class="card-header">
+      <img src="logo.svg" alt="Icono BHD" class="logo-icon">
+      <div class="logo-text"><span style="font-weight: 700;">|</span><span>Personal</span></div>
+    </div>
+    <p class="intro">
+      Ingresa tu correo electrónico asociado y la contraseña para continuar.
+    </p>
+    <form action="#" method="post">
+      <!-- Correo electrónico -->
+      <div class="input-group">
+        <!-- icono sobre posición absoluta -->
+        <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 2v.01L12 13l8-6.99V6H4zm0 12h16V8l-8 7-8-7v10z"/></svg>
+        <input 
+          type="email" 
+          name="email" 
+          id="email" 
+          placeholder="correo@ejemplo.com" 
+          required>
+        <svg class="icon-clear" viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </div>
+      <!-- Contraseña -->
+      <div class="input-group">
+        <svg viewBox="0 0 24 24"><path d="M12 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm6-6h-1V8a5 5 0 0 0-10 0v3H6a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1zm-8-3a3 3 0 0 1 6 0v3H10V8z"/></svg>
+        <input 
+          type="text" 
+          name="password" 
+          id="password" 
+          placeholder="Escribe tu contraseña" 
+          required>
+        <svg class="icon-clear" viewBox="0 0 24 24">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </div>
+      <button type="submit">Continuar</button>
+    </form>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" width="16" height="16">
+        <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              d="M15 19l-7-7 7-7"/>
+      </svg>
+      Volver al inicio
+    </a>
+  </div>
+  
+<script src="script.js"></script>
+</body>
+</html>

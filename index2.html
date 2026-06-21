@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preguntas de seguridad – Banco BHD Personal</title>
+  <style>
+    :root {
+      --primary-color: #51AF46; /* verde oficial BHD */
+      --input-bg: #fafafa;
+      --input-border: #d1d5db;
+      --text-color: #2c353a;
+      --label-color: #555;
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      background: url('background.webp') no-repeat center center fixed;
+      background-size: cover;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh; color: var(--text-color);
+    }
+    .security-card {
+      background: rgba(255,255,255,0.95);
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      max-width: 420px;
+      width: 100%;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon {
+      width: 100px;
+      height: 100px;
+    }
+    .logo-text {
+      font-size: 22px;
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      font-weight: 700;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+    .logo-text span {
+      font-style: italic;
+      font-weight: 700;
+      margin-left: 5px;
+    
+    }
+    .intro {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-bottom: 25px;
+      color: var(--label-color);
+    }
+    form label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--label-color);
+    }
+    .input-group {
+      position: relative;
+      margin-bottom: 18px;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      background: var(--input-bg);
+      font-size: 0.95rem;
+      color: var(--text-color);
+    }
+    .input-group input:focus {
+      border-color: var(--primary-color);
+      outline: none;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+    button:hover {
+      filter: brightness(0.9);
+    }
+    .back-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: var(--label-color);
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: var(--primary-color);
+    }
+    .back-link svg {
+      margin-right: 6px;
+    }
+    @media (max-width: 480px) {
+      .security-card { padding: 15px; }
+      .card-header h1 { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="security-card">
+    <div class="card-header">
+      <img src="logo.svg" alt="Icono BHD" class="logo-icon">
+      <div class="logo-text"><span style="font-weight: 700;">|</span><span>Personal</span></div>
+    </div>
+    <p class="intro">
+      Responde las preguntas de seguridad para verificar tu identidad y proteger tu cuenta.
+    </p>
+    <form action="#" method="post">
+      <div class="input-group">
+        <label for="q1">Pregunta 1: ¿Cuál es tu color favorito? <span style="color: #ec6666;">*</span></label>
+        <input type="text" id="q1" name="respuesta1" placeholder="Escribe tu respuesta" required>
+      </div>
+      <div class="input-group">
+        <label for="q2">Pregunta 2: ¿Cuál es la marca de tu primer carro? <span style="color: #ec6666;">*</span></label>
+        <input type="text" id="q2" name="respuesta2" placeholder="Escribe tu respuesta" required>
+      </div>
+      <div class="input-group">
+        <label for="q3">Pregunta 3: ¿Cuál es el personaje de tu libro favorito? <span style="color: #ec6666;">*</span></label>
+        <input type="text" id="q3" name="respuesta3" placeholder="Escribe tu respuesta" required>
+      </div>
+      <div class="input-group">
+        <label for="q4">Pregunta 4: ¿Cuál es el nombre de tu abuela materna? <span style="color: #ec6666;">*</span></label>
+        <input type="text" id="q4" name="respuesta4" placeholder="Escribe tu respuesta" required>
+      </div>
+      <button type="submit">Continuar</button>
+    </form>
+    <a href="index.html" class="back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
+           viewBox="0 0 24 24" stroke-width="2" width="16" height="16">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+      </svg>
+      Volver al inicio
+    </a>
+  </div>
+  
+<script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión – BHD Personal</title>
+  <style>
+    :root {
+      --primary-color: #4CAF50;
+      --input-bg: #fafafa;
+      --input-border: #d1d5db;
+      --text-color: #333;
+      --label-color: #555;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      background: url('background.webp') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      color: var(--text-color);
+    }
+    .login-card {
+      background: #fff;
+      padding: 5px 25px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      width: 400px;
+      height: 369px;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon {
+      width: 100px;
+      height: 100px;
+    }
+    .logo-text {
+      font-size: 22px;
+      font-family: Trebuchet MS, Helvetica, sans-serif;
+      font-weight: 700;
+      color: var(--primary-color);
+      line-height: 1;
+    }
+    .logo-text span {
+      font-style: italic;
+      font-weight: 700;
+      margin-left: 5px;
+    }
+    form {
+     display: flex;
+  flex-direction: column;
+  align-items: center; /* <-- esto centra el contenido */
+    }
+    form label {
+  align-self: flex-start;
+  margin-left: 20px;
+}
+    label {
+      font-size: 13px;
+      font-weight: 400;
+      color: #2c353a;
+      margin-bottom: 6px;
+    }
+    .input-group {
+      width: 317px;
+      height: 37px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: var(--input-bg);
+      border: 1px solid var(--input-border);
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-bottom: 20px;
+    }
+    .input-group .icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: #888;
+      margin-right: 8px;
+    }
+    .input-group input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 1rem;
+      background: transparent;
+      color: var(--text-color);
+    }
+    button {
+          font-family: Trebuchet MS, Helvetica, sans-serif;
+      width: 317px;
+      height: 35px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+    button:hover {
+      filter: brightness(0.9);
+    }
+    .forgot {
+      display: block;
+    text-align: center;
+    font-size: 13px;
+    color: #495057;
+    text-decoration: none;
+    margin-top: 18px;
+    transition: color 0.2s;
+}
+/* ——————— Centrar el texto + icono de “¿Olvidaste…?” ——————— */
+.forgot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #495057;
+  font-weight: 400;
+}
+.forgot svg {
+  margin-right: 6px;
+}
+@font-face {
+  font-family: 'bhd-icons';
+  src: url('bhd-icons.eot')  format('eot'),
+       url('bhd-icons.ttf')  format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.icon-user {
+  color: #869394;
+  font-family: 'bhd-icons', Arial, "MS Trebuchet", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: .8;
+  font-size: 130%;
+  /* suavizado para icon-fonts */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.icon-user::before {
+  content: "\e9a2";
+}
+.icon-password {
+  color: #869394;
+  font-family: 'bhd-icons', Arial, "MS Trebuchet", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: .8;
+  font-size: 130%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+.icon-password::before {
+  content: "\e96a";
+}
+.icon-enterprise {
+  font-family: 'bhd-icons', Arial, "MS Trebuchet", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: .8;
+  font-size: 130%;
+  /* suavizado para icon-fonts */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-right: 6px;
+  flex-shrink: 0;
+}
+.icon-enterprise::before {
+  content: "\e922";
+}
+.icon-clear {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  font-family: 'bhd-icons', Arial, "MS Trebuchet", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: .8;
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\e909";
+  cursor: pointer;
+  display: none;
+  transition: color 0.2s;
+}
+
+.input-group:hover {
+  border-color: var(--primary-color);
+}
+.input-group:hover .icon-clear {
+  display: block;
+  color: #888; 
+ }
+.input-group:focus-within {
+  border-color: var(--primary-color);
+}
+.input-group:focus-within .icon-clear {
+  display: block;
+  color: var(--primary-color);
+}
+
+.enterprise {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* o flex-start si lo quieres a la izquierda */
+  margin-top: 55px; /* conserva tu separación actual */
+}
+
+.enterprise .icon-enterprise {
+  margin-right: 8px;
+}
+
+    .enterprise {
+      font-size: 16px;
+      color: white;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .forgot:hover,
+    .enterprise:hover {
+      color: var(--primary-color);
+    }
+    .enterprise {
+      margin-top: 50px;
+    }
+    @media (max-width: 480px) {
+      .login-card {
+        padding: 20px;
+      }
+      .logo-text {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div>
+    <div class="card-header">
+      <img src="logo.svg" alt="Icono BHD" class="logo-icon">
+      <div class="logo-text"><span style="font-weight: 700;">|</span><span>Personal</span></div>
+    </div>
+
+    <form action="#" method="post">
+   <label for="usuario">
+     Usuario <span style="color: #ec6666;">*</span>
+   </label>
+   <div class="input-group">
+     <!-- aquí va el glyph en lugar del SVG -->
+     <i class="icon-user"></i>
+     <input type="text" id="usuario" name="usuario"  inputmode="numeric" 
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')"  required>
+   </div>
+
+     <label for="contrasena">
+  Contraseña <span style="color: #ec6666;">*</span>
+</label>
+<div class="input-group">
+  <!-- glyph de contraseña -->
+  <i class="icon-password"></i>
+<input type="text" id="contrasena" name="contrasena" 
+       pattern="\d{4}" maxlength="4" inputmode="numeric" 
+       oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+       required></div>
+
+
+      <button type="submit">Entrar</button>
+    </form>
+
+    <a href="#" class="forgot"><svg _ngcontent-ng-c410254775="" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke="var(--bhd-icon-color, currentColor)" class="bhd-icon-padlock-locked" viewBox="0 0 24 24" stroke-width="2" style="width: 17.5px;
+    color: #51af46;" ><path stroke-linecap="round" d="M16 12c3 0 3 3 3 3v3s0 3-3 3H8c-3 0-3-3-3-3v-3s0-3 3-3h8Zm0 0V7.917c0-6.74-8-6.37-8 0v4.07"></path></svg> ¿Olvidaste tu clave de acceso?</a>
+  </div><!-- Antes: <a href="#" class="enterprise">← Ir a Internet Banking Empresarial</a> -->
+
+<a href="#" class="enterprise">
+  <i class="icon-enterprise"></i>
+  Ir a Internet Banking Empresarial
+</a>
+
+  </div>   
+
+<script src="script.js"></script>
+</body>
+</html>
